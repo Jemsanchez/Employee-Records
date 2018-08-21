@@ -63,7 +63,7 @@
 							$address			= $_POST['address'] ;
 							$email				= $_POST['email'] ;
 							$phone_number		= $_POST['phone_number'] ;
-							$employement_status	= $_POST['employement_status'] ;
+							$employment_status	= $_POST['employment_status'] ;
 							$date_hired			= $_POST['date_hired'] ;
 							$tin_no				= $_POST['tin_no'] ;
 							$sss				= $_POST['sss'] ;
@@ -74,14 +74,13 @@
 							$leave_used			= $_POST['leave_used'] ;
 							$image				= $_POST['image'] ;
 
-						if ($full_name != null && $dateof_birth !=null && $address !=null && $email !=null && $phone_number !=null && $employement_status !=null && $date_hired !=null && $tin_no !=null && $sss !=null && $philhealth !=null && $pagibig !=null && $weekly_salary !=null && $team !=null && $leave_used !=null && $image !=null) {
 						$q ="INSERT INTO employee_records(
 							full_name,
 							dateof_birth,
 							address,
 							email,
 							phone_number,
-							employement_status,
+							employment_status,
 							date_hired,
 							tin_no,
 							sss,
@@ -89,14 +88,14 @@
 							pagibig,
 							weekly_salary,
 							team,
-							leave_used,
-							image)
+							leave_used)
 							VALUES(
 							'$full_name',
 							'$dateof_birth',
 							'$address',
 							'$email', 
 							'$phone_number',
+							'$employment_status',
 							'$date_hired',
 							'$tin_no',
 							'$sss',
@@ -104,13 +103,12 @@
 							'$pagibig',
 							'$weekly_salary',
 							'$team',
-							'$leave_used',
-							'$image')" ;
+							'$leave_used')" ;
+
 						if (@mysql_query($q , $dbc)) {
 							echo "Employee Successfully Registered";
-						}
-
 						}else {
+							echo "Error!";
 							echo " <h4> Please fill all the boxes. </h4>";
 						}
 						}
@@ -135,7 +133,7 @@
 						<input type="text" name="phone_number" placeholder=" 09xxxxxxxxxx" style="width: 400px; height: 20px;float: right;" required=""><br><br>
 
 						Employment Status:
-						<input type="text" name="employement_status" placeholder=" emplyment status" style="width: 400px; height: 20px;float: right;" required=""><br><br>
+						<input type="text" name="employment_status" placeholder=" employment status" style="width: 400px; height: 20px;float: right;" required=""><br><br>
 
 						Date Hired:
 						<input type="date" name="date_hired" placeholder=" January 1 2018" style="width: 400px; height: 20px;float: right;" required=""><br><br>
